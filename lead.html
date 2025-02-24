@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIMOC DROP</title>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/lead.css">
+    
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- Custom Script -->
+    <script defer src="js/lead.js"></script>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo">
+            <h2>THE ANIMOC</h2>
+        </div>
+        <div class="password-text" id="openPasswordModal">
+            ENTER USING PASSWORD
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- Countdown & Image Grid -->
+        <div class="countdown-image-container">
+            <div class="countdown">
+                <div class="time-box">
+                    <span id="days" class="time-value">2</span>
+                    <span class="time-label">DAYS</span>
+                </div>
+                <div class="time-box">
+                    <span id="hours" class="time-value">1</span>
+                    <span class="time-label">HOURS</span>
+                </div>
+                <div class="time-box">
+                    <span id="mins" class="time-value">28</span>
+                    <span class="time-label">MINS</span>
+                </div>
+                <div class="time-box">
+                    <span id="secs" class="time-value">25</span>
+                    <span class="time-label">SECS</span>
+                </div>
+            </div>
+            <div class="image-grid">
+                <img src="assets/5.png" alt="Item 1" loading="lazy">
+                <img src="assets/6.png" alt="Item 2" loading="lazy">
+                <img src="assets/7.png" alt="Item 3" loading="lazy">
+                <img src="assets/8.png" alt="Item 4" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Email Signup Section -->
+        <div class="email-signup">
+            <p class="drop-info">THE ANIMOC DROP - 23.03.01 | 11:45 PM NPT</p>
+            <p class="drop-description">Join as a member for exclusive PRIORITY ACCESS to our next DROP</p>
+            <form class="email-form">
+                <input type="email" placeholder="Enter email here" class="email-input" required>
+                <button type="submit" class="submit-btn">→</button>
+            </form>
+        </div>
+
+        <!-- Password Modal -->
+        <div class="password-modal" role="dialog" aria-labelledby="DialogHeading" aria-modal="true">
+            <div class="modal-overlay"></div>
+            <div class="password-modal__container">
+                <div class="password-header">
+                    <h2>Enter store using password</h2>
+                    <button type="button" class="modal__close-button" aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-close" fill="none" viewBox="0 0 18 17">
+                            <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="password-modal__content">
+                    <form method="post" action="/password" class="password-form">
+                        <input type="hidden" name="form_type" value="storefront_password">
+                        <input type="hidden" name="utf8" value="✓">
+                        <div class="input-container">
+                            <input type="password" id="input" required>
+                            <label for="input" class="label">Password</label>
+                            <button class="ent_button" type="submit" id="submit">
+                                <span>ENTER</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animoc Info Section -->
+        <div class="info-section">
+            <h2>THE ANIMOC</h2>
+            <p>Every colorway from the past, <strong>one final time</strong>.</p>
+            <p>As we wrap up the winter season, <strong>THE ANIMOC</strong> is our way of making every last meter of fabric count — no waste, no excess, just pure sustainability. Once these colors are gone, they’re gone for good.</p>
+            <p>Some pieces will be available for <strong>direct purchase</strong> (shipping in 4-8 days), while others will be <strong>pre-order only</strong> (shipping early April), depending on stock levels.</p>
+            <p>At Animoc, we stand for mindful fashion — this drop is a step closer to that vision.</p>
+            <p class="date"><strong>23.03.01 | 11:45 PM NPT</strong></p>
+            <p class="contact">For assistance, email us at <a>administration@animocstudio.com</a></p>
+            <a href="https://www.instagram.com/animoc.studio/" class="social-link" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                </svg>
+            </a>
+            <p>Powered By ANIMOC STUDIO</p>
+        </div>
+    </main>
+
+</body>
+</html>

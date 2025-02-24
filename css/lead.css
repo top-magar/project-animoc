@@ -1,0 +1,413 @@
+/* ===============================
+   1. FONTS & GLOBAL STYLES
+================================= */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+
+/* -------------------------------
+   Base Styles
+------------------------------- */
+body {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: #fff;
+    text-align: center;
+    font-family: 'JetBrains Mono', sans-serif;
+}
+
+
+/* ===============================
+   2. HEADER STYLES
+================================= */
+.header {
+    display: flex;
+    padding: 80px;
+    margin: 20px 0 60px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+/* Password Text Element */
+.password-text {
+    color: #444;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 20px;
+    /*border: 1px solid #888;
+    border-radius: 20px;*/
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    justify-content: center;
+    transition: 
+        color 0.2s ease-in-out, 
+        background-color 0.2s ease-in-out, 
+        box-shadow 0.2s ease-in-out, 
+        transform 0.1s ease-in-out;
+}
+
+.password-text:hover {
+    color: #000;
+    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.password-text:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.password-text:not(:hover) {
+    transition: none;
+    color: #444;
+    transform: none;
+    background-color: transparent;
+}
+
+
+/* ===============================
+   3. MAIN CONTENT AREA
+================================= */
+.container {
+    max-width: 100vw;
+    margin: 0 auto;
+}
+
+/* -------------------------------
+   Countdown & Image Section
+------------------------------- */
+.countdown-image-container {
+    gap: 20px;
+    margin: 20px 0;
+    display: flex;
+    background: #f4f4f4;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Countdown Timer */
+.countdown {
+    gap: 0;
+    margin: 20px auto;
+    max-width: 600px;
+    display: grid;
+    background: #f8f8f8;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.time-box {
+    padding: 20px 40px;
+    background: #f8f8f8;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.time-box:last-child {
+    border-right: none;
+}
+
+.time-value {
+    color: #888;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.time-label {
+    color: #888;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Image Grid */
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    max-width: 180px;
+}
+
+
+/* ===============================
+   4. EMAIL SIGNUP FORM
+================================= */
+.email-signup {
+    padding: 25px;
+    margin: 0 auto;
+    max-width: 500px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.email-form {
+    width: 100%;
+    display: flex;
+    padding-bottom: 8px;
+    align-items: center;
+    border-bottom: 2px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+.email-form:focus-within {
+    border-bottom-color: #000;
+}
+
+.email-input {
+    width: 100%;
+    border: none;
+    padding: 10px 0;
+    font-size: 16px;
+    background: transparent;
+    outline: none;
+}
+
+.submit-btn {
+    border: none;
+    padding: 8px;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+    background: #b5b5b5;
+    transform: scale(1.1);
+    width: 35px;
+    height: 35px;
+}
+
+.submit-btn:active {
+    transform: scale(0.9);
+}
+
+
+/* ===============================
+   5. INFO SECTION
+================================= */
+.info-section {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.info-section h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.info-section p {
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 40px;
+}
+
+.date {
+    font-weight: bold;
+}
+
+.contact {
+    color: #777;
+    font-size: 10px;
+}
+
+.social-link {
+    color: #888;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    color: #000;
+}
+
+
+/* ===============================
+   6. PASSWORD MODAL
+================================= */
+.password-modal {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: fixed;
+    align-items: flex-start;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.password-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.password-modal__container {
+    width: 100%;
+    padding: 40px;
+    max-width: 100%;
+    position: relative;
+    background: white;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 40px 30%;
+}
+
+/* Modal Header */
+.password-header {
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.password-header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.modal__close-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    color: #000;
+    font-size: 18px;
+    background: #e8e8e8;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.modal__close-button:hover {
+    background: #b5b5b5;
+    transform: rotate(90deg);
+}
+
+/* Password Input */
+.input-container {
+    width: 100%;
+    padding: 10px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-container input {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    background: transparent;
+    outline: none;
+    border-bottom: 2px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+.input-container input:focus {
+    border-bottom-color: #000;
+}
+
+.input-container .label {
+    color: #aaa;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-container input:focus ~ .label,
+.input-container input:valid ~ .label {
+    top: 0;
+    color: #333;
+    font-size: 14px;
+}
+
+.ent_button {
+    height: 45px;
+    padding: 0 20px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 15px;
+    background: #e8e8e8;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.ent_button:hover {
+    background: #b5b5b5;
+}
+
+.ent_button:active {
+    transform: scale(0.95);
+}
+
+
+/* ===============================
+   7. RESPONSIVE DESIGN
+================================= */
+@media (max-width: 768px) {
+    .countdown-image-container {
+        gap: 20px;
+        flex-direction: column;
+    }
+
+    .image-grid img {
+        max-width: 150px;
+    }
+
+    .email-signup {
+        width: 90%;
+    }
+
+    .info-section {
+        padding: 0 15px;
+    }
+
+    .password-modal__container {
+        width: 90%;
+        padding: 30px;
+    }
+}

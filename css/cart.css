@@ -1,0 +1,393 @@
+/* ===============================
+   1. BASE & TYPOGRAPHY
+================================= */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'JetBrains Mono', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+/* ===============================
+   2. LAYOUT & NAVIGATION
+================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 80px;
+    display: flex;
+    justify-content: space-between; /* Changed to space-between */
+    align-items: center;
+    background-color: white;
+    z-index: 1000;
+}
+
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    letter-spacing: 0.05em;
+}
+
+.cart {
+    text-decoration: none;
+    color: #333;
+    position: relative;
+    margin-left: auto;
+    cursor: pointer;
+}
+.cart:hover {
+    color: #000;
+}
+
+/* ===============================
+   3. HAMBURGER & SIDE MENU
+================================= */
+.hamburger-menu {
+    position: fixed;
+    left: 20px;
+    top: 26px;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.active span:first-child {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:last-child {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: white;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+.side-menu.active {
+    transform: translateX(300px);
+}
+
+.side-menu-content {
+    padding: 80px 40px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.side-menu-link {
+    text-decoration: none;
+    color: #444;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+    padding: 10px 0;
+}
+
+.side-menu-link:hover {
+    color: #000;
+    transform: translateX(10px);
+}
+
+.side-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.side-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===============================
+   4. CART SECTION
+================================= */
+.cart-section {
+    margin-top: 100px;
+    padding: 40px 80px;
+    min-height: calc(100vh - 300px);
+}
+
+.cart-title {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-bottom: 40px;
+}
+
+.cart-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cart Items */
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+    padding: 20px;
+    background: white;
+    border: 1px solid #eee;
+    transition: opacity 0.3s ease;
+}
+
+.cart-item-image {
+    background: #f8f8f8;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.cart-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.cart-item:hover .cart-item-image img {
+    transform: scale(1.05);
+}
+
+.cart-item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+}
+
+.cart-item-details h3 {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+.price {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Quantity Selector */
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quantity-btn:hover {
+    background: #f4f4f4;
+}
+
+.quantity-input {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-family: 'JetBrains Mono', sans-serif;
+}
+
+.remove-btn {
+    width: fit-content;
+    padding: 8px 16px;
+    background: transparent;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+}
+
+.remove-btn:hover {
+    color: #000;
+}
+
+/* Cart Summary */
+.cart-summary {
+    background: white;
+    padding: 30px;
+    border: 1px solid #eee;
+    height: fit-content;
+}
+
+.cart-summary h2 {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.summary-row.total {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    font-weight: 500;
+    color: #333;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 15px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    margin-top: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.checkout-btn:hover {
+    background: #000;
+}
+
+/* ===============================
+   5. FOOTER
+================================= */
+.footer {
+    padding: 40px 80px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-link {
+    text-decoration: none;
+    color: #888;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #000;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.copyright {
+    font-size: 10px;
+    color: #777;
+}
+
+/* ===============================
+   6. MEDIA QUERIES
+================================= */
+@media (max-width: 968px) {
+    .navbar {
+        padding: 20px;
+    }
+
+    .cart-section {
+        padding: 20px;
+    }
+
+    .cart-container {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-item {
+        grid-template-columns: 120px 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .cart-item {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-item-image {
+        aspect-ratio: 16/9;
+    }
+}

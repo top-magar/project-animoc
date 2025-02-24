@@ -1,0 +1,431 @@
+/* ===============================
+   1. BASE & TYPOGRAPHY
+================================= */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'JetBrains Mono', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+/* Announcement Bar */
+/*.announcement {
+    background: #000;
+    color: white;
+    height: 40px;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1001;
+}
+
+.announcement p {
+    animation: scroll-left 20s linear infinite;
+    white-space: nowrap;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}*/
+.announcement-bar {
+    overflow: hidden;
+    font-size: 1.3rem;
+    letter-spacing: 0.06em;
+    line-height: 1.25;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 1001;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    background: #f4f4f4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.page-width {
+    max-width: 160rem;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.marquee {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.announcement-slider {
+    display: flex;
+    position: absolute;
+    white-space: nowrap;
+    gap: 20px;
+}
+
+.announcement-slider__slide {
+    flex: 0 0 auto;
+    padding: 0 20px;
+}
+
+.announcement-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+.announcement-text {
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Smoother Marquee Animation */
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* ===============================
+   2. LAYOUT & NAVIGATION
+================================= */
+/* Only updating the navbar-related CSS sections */
+.navbar {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    padding: 20px 80px;
+    display: flex;
+    justify-content: space-between; /* Changed to space-between */
+    align-items: center;
+    background-color: white;
+    z-index: 1000;
+}
+
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    letter-spacing: 0.05em;
+}
+
+.cart {
+    text-decoration: none;
+    color: #333;
+    position: relative;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+/* ===============================
+   3. HAMBURGER & SIDE MENU
+================================= */
+.hamburger-menu {
+    position: fixed;
+    left: 20px;
+    top: 66px;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.active span:first-child {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:last-child {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.side-menu {
+    position: fixed;
+    top: 80px;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: white;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+.side-menu.active {
+    transform: translateX(300px);
+}
+
+.side-menu-content {
+    padding: 80px 40px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.side-menu-link {
+    text-decoration: none;
+    color: #444;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+    padding: 10px 0;
+}
+
+.side-menu-link:hover {
+    color: #000;
+    transform: translateX(10px);
+}
+
+.side-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.side-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===============================
+   4. HERO SECTION
+================================= */
+.hero {
+    margin-top: 100px;
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+    padding: 0;
+    background: #f4f4f4;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+}
+
+.u-cover-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.u-cover-title span {
+    left: -30000px;
+    position: absolute;
+}
+
+.u-cover-title-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    mix-blend-mode: exclusion;
+}
+
+/* ===============================
+   5. PRODUCTS GRID
+================================= */
+.products {
+    padding: 60px 80px;
+    background: #fff;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.product-item {
+    cursor: pointer;
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+    background: #f8f8f8;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.product-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-hover span {
+    color: white;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.product-item:hover .product-hover {
+    opacity: 1;
+}
+
+.product-item:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.product-info h3 {
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    margin-bottom: 5px;
+}
+
+.product-info p {
+    font-size: 12px;
+    color: #666;
+}
+
+/* ===============================
+   6. FOOTER
+================================= */
+.footer {
+    padding: 40px 80px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-link {
+    text-decoration: none;
+    color: #888;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #000;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.copyright {
+    font-size: 10px;
+    color: #777;
+}
+
+/* ===============================
+   7. MEDIA QUERIES
+================================= */
+@media (max-width: 768px) {
+    .announcement-text {
+        font-size: 12px;
+    }
+    .hamburger-menu {
+        top: 60px;
+    }
+    .navbar {
+        padding: 20px;
+    }
+
+    .products {
+        padding: 40px 20px;
+    }
+}

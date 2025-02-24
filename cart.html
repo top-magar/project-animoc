@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CART - ANIMOC</title>
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+    
+    <!-- Add hamburger button and side menu -->
+    <button class="hamburger-menu" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <div class="side-menu">
+        <nav class="side-menu-content">
+            <a href="index.html" class="side-menu-link">SHOP</a>
+            <a href="#" class="side-menu-link">ABOUT</a>
+            <a href="#" class="side-menu-link">CONTACT</a>
+            <a href="lead.html" class="side-menu-link">LOGOUT</a>
+        </nav>
+    </div>
+    <div class="side-menu-overlay"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-center">
+            <a href="index.html" class="logo">THE ANIMOC</a>
+        </div>
+        <a href="cart.html" class="cart active">CART (2)</a>
+    </nav>
+
+    <!-- Cart Section -->
+    <main class="cart-section">
+        <h1 class="cart-title">YOUR CART</h1>
+        
+        <div class="cart-container">
+            <div class="cart-items">
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="assets/p3.png" alt="ANIMOC SWEATSHIRT">
+                    </div>
+                    <div class="cart-item-details">
+                        <h3>ANIMOC SWEATSHIRT</h3>
+                        <p class="price">RS 4000</p>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" aria-label="Decrease quantity">-</button>
+                            <input type="number" value="1" min="1" class="quantity-input">
+                            <button class="quantity-btn" aria-label="Increase quantity">+</button>
+                        </div>
+                        <button class="remove-btn">REMOVE</button>
+                    </div>
+                </div>
+
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="assets/p4.png" alt="ANIMOC T-SHIRT">
+                    </div>
+                    <div class="cart-item-details">
+                        <h3>ANIMOC T-SHIRT</h3>
+                        <p class="price">RS 2000</p>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" aria-label="Decrease quantity">-</button>
+                            <input type="number" value="1" min="1" class="quantity-input">
+                            <button class="quantity-btn" aria-label="Increase quantity">+</button>
+                        </div>
+                        <button class="remove-btn">REMOVE</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <h2>ORDER SUMMARY</h2>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>RS 6000</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>RS 200</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span>RS 6200</span>
+                </div>
+                <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="#" class="social-link" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+            </a>
+        </div>
+        <div class="copyright">
+            <p>© 2025 ANIMOC STUDIO. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
