@@ -94,31 +94,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Clone announcement text for smooth infinite scroll
-        const slider = document.querySelector('.announcement-slider');
-        const slide = slider.querySelector('.announcement-slider__slide');
-    
-        if (slider && slide) {
-            const slideWidth = slide.offsetWidth;
-            const slideCount = Math.ceil(window.innerWidth / slideWidth) + 2;
-    
-            // Clone slides for seamless scrolling
-            for (let i = 0; i < slideCount; i++) {
-                const clone = slide.cloneNode(true);
-                clone.setAttribute("aria-hidden", "true"); // Improve accessibility
-                slider.appendChild(clone);
+       const slider = document.querySelector(".announcement-slider");
+            const slides = document.querySelectorAll(".announcement-slider__slide");
+
+            // Clone slides before appearing in viewport
+            let totalWidth = 0;
+            slides.forEach(slide => {
+                totalWidth += slide.offsetWidth + 20; // Adjust for spacing
+            });
+
+            // Duplicate slides until we cover the full width (preloading effect)
+            while (slider.offsetWidth < window.innerWidth * 2) {
+                slides.forEach(slide => {
+                    let clone = slide.cloneNode(true);
+                    slider.appendChild(clone);
+                });
             }
-    
-            // Start animation
-            let offset = 0;
+
+            let speed = 1; // Adjust scrolling speed
+            let position = 0;
+
             function animateMarquee() {
-                offset -= 1;
-                if (offset <= -slideWidth) {
-                    offset = 0;
+                position -= speed;
+                if (position <= -totalWidth) {
+                    position = 0; // Reset position to prevent jumps
                 }
-                slider.style.transform = `translateX(${offset}px)`;
+                slider.style.transform = `translateX(${position}px)`;
                 requestAnimationFrame(animateMarquee);
             }
+
             animateMarquee();
-        }
+        
+        
     
 });
