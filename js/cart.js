@@ -70,5 +70,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize cart total
     updateCartTotal();
+
+    // Clone announcement text for smooth infinite scroll
+       const slider = document.querySelector(".announcement-slider");
+            const slides = document.querySelectorAll(".announcement-slider__slide");
+
+            // Clone slides before appearing in viewport
+            let totalWidth = 0;
+            slides.forEach(slide => {
+                totalWidth += slide.offsetWidth + 20; // Adjust for spacing
+            });
+
+            // Duplicate slides until we cover the full width (preloading effect)
+            while (slider.offsetWidth < window.innerWidth * 2) {
+                slides.forEach(slide => {
+                    let clone = slide.cloneNode(true);
+                    slider.appendChild(clone);
+                });
+            }
+
+            let speed = 1; // Adjust scrolling speed
+            let position = 0;
+
+            function animateMarquee() {
+                position -= speed;
+                if (position <= -totalWidth) {
+                    position = 0; // Reset position to prevent jumps
+                }
+                slider.style.transform = `translateX(${position}px)`;
+                requestAnimationFrame(animateMarquee);
+            }
+
+            animateMarquee();
     
 });

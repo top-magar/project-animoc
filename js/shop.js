@@ -49,12 +49,12 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
 
     // Hero Image Animation
-    gsap.from(".hero-image", {
+   /* gsap.from(".hero-image", {
         opacity: 0,
         scale: 1.2,
         duration: 1.5,
         ease: "power2.out"
-    });
+    });*/
 
     // Hero Text Animation
     gsap.from(".hero-text", {

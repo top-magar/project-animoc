@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANIMOC</title>
-    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/shop.css">
   
 </head>
 <body>
@@ -53,7 +53,7 @@
     <!-- Your existing content remains unchanged -->
     <nav class="navbar">
         <div class="nav-center">
-            <a href="#" class="logo">THE ANIMOC</a>
+            <a href="index.html" class="logo">THE ANIMOC</a>
             
         </div>
         <div class="cart-icon"></div>
@@ -62,14 +62,7 @@
     </nav>
     </header>
     <main>
-    <div class="hero">
-        <div id="background"></div>
-        <div class="hero-text">
-            <a href="shop.html" class="shop-btn">SHOP</a>
-        </div>
-    </div>
-
-    <!-- <div class="products">
+    <div class="products">
         <div class="product-grid">
             <div class="product-item">
                 <div class="product-image">
@@ -120,7 +113,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     </main>
     <footer class="footer">
         <div class="social-links">
@@ -142,52 +135,7 @@
         </div>
     </footer>
      <!-- Load scripts at the end of body -->
-     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-     <script src="js/jquery.ripples.js"></script>
-     <script>
-         $(document).ready(function() {
-             const baseRadius = 37;
-             let time = 0;
-             
-             try {
-                 const $ripples = $('#background').ripples({
-                     resolution: 512,
-                     dropRadius: baseRadius,
-                     perturbance: 0.12,
-                     interactive: true
-                 });
- 
-                 function handleRipple(e) {
-                     const $el = $(this);
-                     const x = e.pageX - $el.offset().left;
-                     const y = e.pageY - $el.offset().top;
-                     
-                     time += 0.05;
-                     const currentRadius = baseRadius * 0.5 + Math.sin(time * 4) * 10;
-                     const strength = e.type === 'mousedown' ? 0.7 : 0.3;
-                     
-                     $el.ripples('drop', x, y, currentRadius, strength);
-                 }
- 
-                 $('#background')
-                     .on('mousemove', handleRipple)
-                     .on('mousedown', handleRipple);
- 
-             } catch (error) {
-                 console.error('Error:', error);
-                 if (error.message?.includes('WebGL')) {
-                     console.error('WebGL not supported or encountered an error');
-                 }
-             }
-         });
-     </script>
-     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1VDDWMRSTH"></script>
-     <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-     gtag('config', 'G-1VDDWMRSTH');
-     </script>
+    
     <script src="js/main.js"></script>
     <script src="js/menu.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
